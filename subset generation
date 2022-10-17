@@ -1,0 +1,12 @@
+vector <vector<ll>> subsets;
+
+void generate(vector <ll> &subset,int i,vector <ll> &input){
+    if(i == input.size()){
+        subsets.push_back(subset);
+        return;
+    }
+    generate(subset,i + 1,input);
+    subset.push_back(input[i]);
+    generate(subset,i + 1,input);
+    subset.pop_back();
+}
